@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Пивной Сомелье</string>
+    <string name="main_activity_search_button_title">Искать пиво!</string>
+    <string name="main_activity_search_results_text">Сорт пива не выбран…</string>
+    <string-array name="main_beer_colors">
+        <item>Светлое</item>
+        <item>Янтарное</item>
+        <item>Коричневое</item>
+        <item>Темное</item>
+    </string-array>
+</resources>
