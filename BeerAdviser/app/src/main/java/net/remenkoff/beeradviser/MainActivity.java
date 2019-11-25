@@ -3,19 +3,15 @@ package net.remenkoff.beeradviser;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.ArrayAdapter;
-
 import java.util.List;
-import java.util.StringJoiner;
-import java.util.stream.Collectors;
 
 final public class MainActivity extends AppCompatActivity implements MainLayoutDelegate {
 
     // MARK: - Private Instance Properties
-    MainLayout layout;
-    BeerExpert expert = new BeerExpert();
+    private MainLayout layout;
+    private BeerExpert expert = new BeerExpert();
 
-    // MARK: - View Lifecycle
+    // MARK: - Activity Lifecycle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

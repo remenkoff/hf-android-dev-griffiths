@@ -18,16 +18,17 @@ public final class MainLayout extends LinearLayout {
     // MARK: - Public Type Properties
     public static final int id = 0xDAA0;
 
-    // MARK: - Private Instance Properties
+    // MARK: - Private Type Properties
     private static final int K_DEFAULT_INDENT= 16;
     private static final int K_SPINNER_TOP_MARGIN = 40;
 
-    // MARK: - Public Instance Interface
-    public MainLayoutDelegate delegate;
+    // MARK: - Package-Private Instance Properties
+    final Spinner beerTypeSpinner;
+    final Button searchButton;
+    final TextView searchResultsTextView;
 
-    public final Spinner beerTypeSpinner;
-    public final Button searchButton;
-    public final TextView searchResultsTextView;
+    // MARK: - Public Instance Properties
+    public MainLayoutDelegate delegate;
 
     // MARK: - Instantiation
     public MainLayout(Context context) {
