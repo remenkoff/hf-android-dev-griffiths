@@ -34,9 +34,9 @@ public final class CreateMessageActivity extends Activity implements CreateMessa
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, layout.msgEditText.getText().toString());
 
-        if (intent.resolveActivity(this.getPackageManager()) != null) {
-            startActivity(intent);
-        }
+        Intent chosenIntent = Intent.createChooser(intent, getString(R.string.cm_chooser_title));
+
+        startActivity(chosenIntent);
     }
 
 }
