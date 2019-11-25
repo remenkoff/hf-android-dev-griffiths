@@ -1,12 +1,10 @@
 package net.remenkoff.mymessenger.ReceiveMessage;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 public final class ReceiveMessageActivity extends Activity {
-
-    // MARK: - Public Type Properties
-    public static final String INTENT_EXTRA_MSG = "INTENT_EXTRA_MSG";
 
     // MARK: - Private Instance Properties
     private ReceiveMessageLayout layout;
@@ -20,7 +18,7 @@ public final class ReceiveMessageActivity extends Activity {
 
     // MARK: - Private Instance Interface
     private void setupInitialState() {
-        String intentExtraMessage = getIntent().getStringExtra(INTENT_EXTRA_MSG);
+        String intentExtraMessage = getIntent().getStringExtra(Intent.EXTRA_TEXT);
 
         layout = new ReceiveMessageLayout(this);
         layout.msgTextView.setText(intentExtraMessage);

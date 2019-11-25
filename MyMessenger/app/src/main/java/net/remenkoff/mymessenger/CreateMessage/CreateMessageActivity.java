@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import net.remenkoff.mymessenger.R;
-import net.remenkoff.mymessenger.ReceiveMessage.ReceiveMessageActivity;
 
 public final class CreateMessageActivity extends Activity implements CreateMessageLayoutDelegate {
 
@@ -31,9 +30,13 @@ public final class CreateMessageActivity extends Activity implements CreateMessa
     // MARK: - CreateMessageLayoutDelegate
     @Override
     public void didTapSendButton() {
-        Intent intent = new Intent(this, ReceiveMessageActivity.class);
-        intent.putExtra(ReceiveMessageActivity.INTENT_EXTRA_MSG, layout.msgEditText.getText().toString());
-        startActivity(intent);
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, layout.msgEditText.getText().toString());
+
+        if (intent.resolveActivity(this.getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
 }
