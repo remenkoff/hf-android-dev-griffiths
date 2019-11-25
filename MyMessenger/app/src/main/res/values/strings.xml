@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Messenger</string>
+    <string name="cm_send_btn_title">Send</string>
+    <string name="cm_msg_placeholder">Enter your text here&#8230;</string>
+</resources>
