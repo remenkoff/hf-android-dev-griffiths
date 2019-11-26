@@ -10,12 +10,14 @@ public final class MainActivity extends Activity implements MainLayoutDelegate {
     // MARK: - Private Instance Properties
     private final String K_SECS_PASSED_KEY = "K_SECS_PASSED_KEY";
     private final String K_IS_RUNNING_KEY = "K_IS_RUNNING_KEY";
+    private final String K_IS_RUNNING_NEEDED_KEY = "K_IS_RUNNING_NEEDED_KEY";
     private final long K_HANDLER_FREQ = 1000;
     private final int K_SECS_DEFAULT_VALUE = 0;
     private final boolean K_IS_RUNNING_DEFAULT_VALUE = false;
 
     private int secondsPassed = K_SECS_DEFAULT_VALUE;
     private boolean isRunning = K_IS_RUNNING_DEFAULT_VALUE;
+    private boolean isRunningNeeded = K_IS_RUNNING_DEFAULT_VALUE;
 
     private MainLayout layout;
 
@@ -27,12 +29,6 @@ public final class MainActivity extends Activity implements MainLayoutDelegate {
         setupInitialState();
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        savedInstanceState.putInt(K_SECS_PASSED_KEY, secondsPassed);
-        savedInstanceState.putBoolean(K_IS_RUNNING_KEY, isRunning);
-    }
-
     private void restoreInstanceState(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             return;
@@ -40,6 +36,29 @@ public final class MainActivity extends Activity implements MainLayoutDelegate {
 
         secondsPassed = savedInstanceState.getInt(K_SECS_PASSED_KEY, K_SECS_DEFAULT_VALUE);
         isRunning = savedInstanceState.getBoolean(K_IS_RUNNING_KEY, false);
+        isRunningNeeded = savedInstanceState.getBoolean(K_IS_RUNNING_NEEDED_KEY, false);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (isRunningNeeded) {
+            isRunning = true;
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(K_SECS_PASSED_KEY, secondsPassed);
+        savedInstanceState.putBoolean(K_IS_RUNNING_KEY, isRunning);
+        savedInstanceState.putBoolean(K_IS_RUNNING_NEEDED_KEY, isRunningNeeded);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isRunningNeeded = isRunning;
+        isRunning = false;
     }
 
     // MARK: - Private Instance Interface
@@ -86,6 +105,13 @@ public final class MainActivity extends Activity implements MainLayoutDelegate {
         });
     }
 
+    private void stopRunning() {
+        if (isRunning && secondsPassed > 0) {
+            secondsPassed -= 1;
+        }
+        isRunning = false;
+    }
+
     // MARK: - MainLayoutDelegate
     @Override
     public void didTapStartButton() {
@@ -94,10 +120,7 @@ public final class MainActivity extends Activity implements MainLayoutDelegate {
 
     @Override
     public void didTapStopButton() {
-        if (isRunning && secondsPassed > 0) {
-            secondsPassed -= 1;
-        }
-        isRunning = false;
+        stopRunning();
     }
 
     @Override
