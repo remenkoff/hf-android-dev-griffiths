@@ -87,3 +87,50 @@ Intent intent = new Intent(action);
 - Android resolves intents based on the named component, action, type of data, and categories specified in the intent. It compares the contents of the intent with the intent filters in each app’s `AndroidManifest.xml`. An activity must have a category of `DEFAULT` if it is to receive an implicit intent.
 - The `createChooser()` method allows you to override the default Android activity chooser dialog. It lets you specify a title for the dialog, and doesn’t give the user the option of setting a default activity. If no activities can receive the intent it is passed, it displays a message. The `createChooser()` method returns an Intent.
 - You retrieve the value of a String resource using `getString(R.string.stringname);`
+
+## Chapter 4. The Activity Lifecycle: Being an activity
+
+Key points:
+
+- `Each app` runs `in its own process` by default.
+- Only the `main thread` can update the user interface.
+- Use a `Handler` to schedule code or post code to a different thread.
+- A `device configuration change` results in the activity being destroyed and recreated.
+- Your activity inherits the lifecycle methods from the `android.app.Activity` class. If you override any of these methods, you need to call up to the method in the superclass.
+- `onSaveInstanceState(Bundle)` enables your activity to save its state before the activity gets destroyed. You can use the `Bundle` to restore state in `onCreate()`.
+- You add values to a `Bundle` using `bundle.put*("name", value)`. You retrieve values from the bundle using `bundle.get*("name")`.
+- `onCreate()` and `onDestroy()` deal with the birth and death of the activity.
+- `onRestart()`, `onStart()`, and `onStop()` deal with the visibility of the activity.
+- `onResume()` and `onPause()` handle when the activity gains and loses the focus.
+
+<!--
+## Chapter 5. Views and View Groups Enjoy the view
+
+## Chapter 6. Constraint Layouts: Put things in their place
+
+## Chapter 7. List views and Adapters: Getting organized
+
+## Chapter 8. Support Libraries and App Bars: Taking shortcuts
+
+## Chapter 9. Fragments: Make it modular
+
+## Chapter 10. Fragments for Larger Interfaces: Different size, different interface
+
+## Chapter 11. Dynamic Fragments: Nesting fragments
+
+## Chapter 12. Design Support Library: Swipe right
+
+## Chapter 13. Recycler Views and Card Views: Get recycling
+
+## Chapter 14. Navigation Drawers: Going places
+
+## Chapter 15. SQLite Databases: Fire up the database
+
+## Chapter 16. Basic cursors: Getting data out
+
+## Chapter 17. Cursors and AsyncTasks: Staying in the background
+
+## Chapter 18. Started Services: At your service
+
+## Chapter 19. Bound Services and Permissions: Bound together
+>
