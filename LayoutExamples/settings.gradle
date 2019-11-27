@@ -1,2 +1,2 @@
-include ':linear-layout-example', ':fragment-layout-example', ':widgets-example'
+include ':linear-layout-example', ':fragment-layout-example', ':widgets-example', ':constraint-layout-example'
 rootProject.name='Layout Examples'
