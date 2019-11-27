@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Layout Examples</string>
+    <string name="ma_to_hint">To</string>
+    <string name="ma_msg_hint">Message</string>
+    <string name="ma_send_btn_title">Send</string>
+</resources>
