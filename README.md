@@ -103,9 +103,27 @@ Key points:
 - `onRestart()`, `onStart()`, and `onStop()` deal with the visibility of the activity.
 - `onResume()` and `onPause()` handle when the activity gains and loses the focus.
 
-<!--
-## Chapter 5. Views and View Groups Enjoy the view
+## Chapter 5. Views and View Groups: Enjoy the view
 
+- GUI components are all types of view. They are all subclasses of the `android.view.View` class.
+- All layouts are subclasses of the `android.view.ViewGroup` class. A view group is a type of view that can contain multiple views.
+- The layout XML file gets converted to a `ViewGroup` containing a hierarchical tree of views.
+- A linear layout lists views either horizontally or vertically. You specify the direction using the `android:orientation` attribute.
+- A frame layout stacks views.
+- Use `android:padding*` attributes to specify how much padding you want around a view.
+- In a linear layout, use `android:layout_weight` if you want a view to use up extra space in the layout.
+- `android:layout_gravity` lets you say where you want views to appear in their available space.
+- `android:gravity` lets you say where you want the contents to appear inside a view.
+- `<ToggleButton>` defines a toggle button that allows you to choose between two states by clicking a button.
+- `<Switch>` defines a switch control that behaves in the same way as a toggle button. It requires API level 14 or above.
+- `<CheckBox>` defines a checkbox.
+- To define a group of radio buttons, first use `<RadioGroup>` to define the radio group. Then put individual radio buttons in the radio group using `<RadioButton>`.
+- Use `<ImageView>` to display an image.
+- `<ImageButton>` defines a button with no text, just an image.
+- Add scrollbars using `<ScrollView>` or `<HorizontalScrollView>`.
+- A `Toast` is a pop-up message.
+
+<!--
 ## Chapter 6. Constraint Layouts: Put things in their place
 
 ## Chapter 7. List views and Adapters: Getting organized
