@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Widgets Example</string>
+    <string name="wa_textview_text">How do you like your tea served?</string>
+    <string name="wa_toggle_on_title">Hot</string>
+    <string name="wa_toggle_off_title">Cold</string>
+    <string name="wa_checkbox_milk_text">Milk</string>
+    <string name="wa_checkbox_sugar_text">Sugar</string>
+    <string name="wa_checkbox_lemon_text">Lemon</string>
+</resources>

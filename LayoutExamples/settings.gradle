@@ -1,2 +1,2 @@
-include ':linear-layout-example', ':duck', ':widgetsexample'
+include ':linear-layout-example', ':duck', ':widgets-example'
 rootProject.name='Layout Examples'
