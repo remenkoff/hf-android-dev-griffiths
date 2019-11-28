@@ -123,10 +123,25 @@ Key points:
 - Add scrollbars using `<ScrollView>` or `<HorizontalScrollView>`.
 - A `Toast` is a pop-up message.
 
-<!--
 ## Chapter 6. Constraint Layouts: Put things in their place
 
+- `Constraint layouts` are designed to work with Android Studio’s design editor. They have their own library and can be used in apps where the minimum SDK is API level 9 or above.
+- Position views by adding `constraints`. Each view needs at least one horizontal and one vertical constraint.
+- Center views by adding constraints to opposite sides of the view. Change the view’s bias to update its position between the constraints.
+- You can change a view’s size to match its constraints if the view has constraints on opposing sides.
+- You can specify a `width:height` aspect ratio for the view’s size.
+- Clicking on the `Infer Constraints` button adds constraints to views based on their position in the `blueprint`.
+
 ## Chapter 7. List views and Adapters: Getting organized
+
+- Sort your ideas for activities into top-level activities, category activities, and create / detail / edit / delete (`CRUD`) activities. Use the category activities to navigate from the top-level activities to the create `CRUD` activities.
+- A list view displays items in a list. Add it to your layout using the `<ListView>` element.
+- Use `android:entries` in your layout to populate the items in your list views from an array defined in `strings.xml`.
+- An adapter acts as a bridge between an `AdapterView` and a data source. `ListViews` and `Spinners` are both types of `AdapterView`.
+- An `ArrayAdapter` is an adapter that works with arrays.
+- Handle click events on `Buttons` using `android:onClick` in the layout code. Handle click events elsewhere by creating a `listener` and implementing its click event.
+
+<!--
 
 ## Chapter 8. Support Libraries and App Bars: Taking shortcuts
 
