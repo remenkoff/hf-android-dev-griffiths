@@ -141,9 +141,21 @@ Key points:
 - An `ArrayAdapter` is an adapter that works with arrays.
 - Handle click events on `Buttons` using `android:onClick` in the layout code. Handle click events elsewhere by creating a `listener` and implementing its click event.
 
-<!--
-
 ## Chapter 8. Support Libraries and App Bars: Taking shortcuts
+
+- You add a basic app bar by applying a `theme` that contains one.
+- The `A`ndroid Support Libraries` provide backward compatibility with older versions of Android.
+- The `AppCompatActivity` class is a type of activity that resides in the `v7 AppCompat Support Library`. In general, your activity needs to extend the `AppCompatActivity` class whenever you want an app bar that provides backward compatibility with older versions of Android.
+- The `android:theme` attribute in `AndroidManifest.xml` specifies which theme to apply.
+- You define styles in a style resource file using the `<style>` element. The `name` attribute gives the style a name. The parent attribute specifies where the style should inherit its properties from.
+- The latest app bar features are in the `Toolbar` class in the `v7 AppCompat Support Library`. You can use a toolbar as your app bar.
+- Add `actions` to your app bar by adding them to a `menu resource file`.
+- Add the items in the menu resource file to the app bar by implementing the activity’s `onCreateOptionsMenu()` method.
+- You determine what items should do when clicked by implementing the activity’s `onOptionsItemSelected()` method.
+- Add an `Up button` to your app bar to navigate up the app’s hierarchy. Specify the hierarchy in `AndroidManifest.xml`. Use the ActionBar `setDisplayHomeAsUpEnabled()` method to enable the `Up button`.
+- You can share content by adding the `share action provider` to your app bar. Add it by including it in your menu resource file. Call its `setShareIntent()` method to pass it an intent describing the content you wish to share.
+
+<!--
 
 ## Chapter 9. Fragments: Make it modular
 
