@@ -31,7 +31,7 @@ public class MenuActivity extends Activity {
         );
         layout.menuListView.setAdapter(arrayAdapter);
 
-        AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+        AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) {
@@ -40,7 +40,7 @@ public class MenuActivity extends Activity {
                 }
             }
         };
-        layout.menuListView.setOnItemClickListener(onItemClickListener);
+        layout.menuListView.setOnItemClickListener(itemClickListener);
 
         setContentView(layout);
     }
