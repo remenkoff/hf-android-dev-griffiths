@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-    
+    tools:context=".CreateOrderActivity">
+
     <include
         layout="@layout/toolbar_main"
         android:id="@+id/toolbar" />
@@ -13,6 +13,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Create activity layout goes here..." />
 
 </LinearLayout>
