@@ -17,8 +17,7 @@ public class CreateOrderActivity extends AppCompatActivity {
     private void setupInitialState() {
         setContentView(R.layout.activity_create_order);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }
