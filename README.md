@@ -155,9 +155,18 @@ Key points:
 - Add an `Up button` to your app bar to navigate up the app’s hierarchy. Specify the hierarchy in `AndroidManifest.xml`. Use the ActionBar `setDisplayHomeAsUpEnabled()` method to enable the `Up button`.
 - You can share content by adding the `share action provider` to your app bar. Add it by including it in your menu resource file. Call its `setShareIntent()` method to pass it an intent describing the content you wish to share.
 
-<!--
-
 ## Chapter 9. Fragments: Make it modular
+
+- A fragment is used to control part of a screen. It `can be reused` across multiple activities.
+- A fragment has an `associated layout`.
+- The `onCreateView()` method gets called each time Android needs the fragment’s layout.
+- Add a fragment to an activity’s layout using the `<fragment>` element and adding a `name` attribute.
+- The fragment lifecycle methods tie in with the states of the activity that contains the fragment.
+- The `Fragment` class doesn’t extend the `Activity` class or implement the `Context` class.
+- Fragments don’t have a `findViewById()` method. Instead, use the `getView()` method to get a reference to the root view, then call the view’s `findViewById()` method.
+- A `list fragment` is a fragment that comes complete with a `ListView`. You create one by subclassing `ListFragment`.
+
+<!--
 
 ## Chapter 10. Fragments for Larger Interfaces: Different size, different interface
 
