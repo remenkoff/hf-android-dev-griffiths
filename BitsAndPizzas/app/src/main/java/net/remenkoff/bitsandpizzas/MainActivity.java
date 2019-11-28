@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +13,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     // MARK: - Private Instance Properties
-    ShareActionProvider shareActionProvider;
+    private ShareActionProvider shareActionProvider;
 
     // MARK: - Activity Lifecycle
     @Override
