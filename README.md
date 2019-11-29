@@ -166,9 +166,19 @@ Key points:
 - Fragments don’t have a `findViewById()` method. Instead, use the `getView()` method to get a reference to the root view, then call the view’s `findViewById()` method.
 - A `list fragment` is a fragment that comes complete with a `ListView`. You create one by subclassing `ListFragment`.
 
-<!--
-
 ## Chapter 10. Fragments for Larger Interfaces: Different size, different interface
+
+- Make apps look different on different devices by putting separate layouts in `device-appropriate folders`.
+- Android keeps track of places you’ve visited within an app by adding them to the `back stack` as separate `transactions`. Pressing the Back button pops the last transaction off the back stack.
+- Use a `frame layout` to add, replace, or remove fragments programmatically using `fragment transactions`.
+- Begin the transaction by calling the `FragmentManager` `beginTransaction()` method. This creates a `FragmentTransaction` object.
+- Add, replace, and delete fragments using the `FragmentTransaction` `add()`, `replace()`, and `remove()` methods.
+- Add a transaction to the back stack using the `FragmentTransaction` `addToBackStack()` method.
+- Commit a transaction using the `FragmentTransaction` `commit()` method. This applies all the updates in the transaction.
+- Save the state of a fragment’s variables in the `Fragment` `onSaveInstanceState()` method.
+- Restore the state of a fragment’s variables in the `Fragment` `onCreate()` method
+
+<!--
 
 ## Chapter 11. Dynamic Fragments: Nesting fragments
 
