@@ -176,11 +176,19 @@ Key points:
 - Add a transaction to the back stack using the `FragmentTransaction` `addToBackStack()` method.
 - Commit a transaction using the `FragmentTransaction` `commit()` method. This applies all the updates in the transaction.
 - Save the state of a fragment’s variables in the `Fragment` `onSaveInstanceState()` method.
-- Restore the state of a fragment’s variables in the `Fragment` `onCreate()` method
-
-<!--
+- Restore the state of a fragment’s variables in the `Fragment` `onCreate()` method.
 
 ## Chapter 11. Dynamic Fragments: Nesting fragments
+
+- Fragments can contain other fragments.
+- If you use the `android:onClick` attribute in a fragment, Android will look for a method of that name in the fragment’s parent activity.
+- Instead of using the `android:onClick` attribute in a fragment, make the fragment implement the `View.OnClickListener` interface and implement its `onClick()` method.
+- If you use the `<fragment>` element in your layout, the fragment gets recreated when you rotate the device. If your fragment is dynamic, use a `fragment transaction` instead.
+- Fragments contain two methods for getting a fragment manager, `getFragmentManager()` and `getChildFragmentManager()`.
+- `getFragmentManager()` gets a reference to the fragment manager associated with the fragment’s parent activity. Any fragment transactions you create using this fragment manager are added to the `back stack` as extra transactions.
+- `getChildFragmentManager()` gets a reference to the fragment manager associated with the fragment’s parent fragment. Any fragment transactions you create using this fragment manager are `nested inside the parent fragment transaction`.
+
+<!--
 
 ## Chapter 12. Design Support Library: Swipe right
 
