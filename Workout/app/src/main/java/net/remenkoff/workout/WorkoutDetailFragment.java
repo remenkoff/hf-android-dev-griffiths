@@ -1,5 +1,7 @@
 package net.remenkoff.workout;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
@@ -11,7 +13,18 @@ import android.widget.TextView;
 public class WorkoutDetailFragment extends Fragment {
 
     // MARK: - Private Instance Properties
+    private final String K_WORKOUT_ID_KEY = "K_WORKOUT_ID_KEY";
     private long workoutId;
+
+    // MARK: - Fragment Lifecycle
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            workoutId = savedInstanceState.getLong(K_WORKOUT_ID_KEY);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -37,6 +50,11 @@ public class WorkoutDetailFragment extends Fragment {
 
         TextView descTextView = view.findViewById(R.id.desc_text_view);
         descTextView.setText(workout.desc);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putLong(K_WORKOUT_ID_KEY, workoutId);
     }
 
     // MARK: - Public Instance Interface
