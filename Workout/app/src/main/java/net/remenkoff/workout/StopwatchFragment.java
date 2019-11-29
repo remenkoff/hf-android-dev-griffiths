@@ -19,15 +19,16 @@ public final class StopwatchFragment extends Fragment implements StopwatchLayout
     private final String K_SECS_PASSED_KEY = "K_SECS_PASSED_KEY";
     private final String K_IS_RUNNING_KEY = "K_IS_RUNNING_KEY";
     private final String K_IS_RUNNING_NEEDED_KEY = "K_IS_RUNNING_NEEDED_KEY";
-    private final long K_HANDLER_FREQ = 1000;
     private final int K_SECS_DEFAULT_VALUE = 0;
     private final boolean K_IS_RUNNING_DEFAULT_VALUE = false;
+    private final long K_HANDLER_FREQ = 1000;
+
+    private Handler handler;
+    private StopwatchLayout layout;
 
     private int secondsPassed = K_SECS_DEFAULT_VALUE;
     private boolean isRunning = K_IS_RUNNING_DEFAULT_VALUE;
     private boolean isRunningNeeded = K_IS_RUNNING_DEFAULT_VALUE;
-
-    public StopwatchLayout layout;
 
     // MARK: - Activity Lifecycle
     @Override
@@ -64,6 +65,7 @@ public final class StopwatchFragment extends Fragment implements StopwatchLayout
         if (isRunningNeeded) {
             isRunning = true;
         }
+        runTimer();
     }
 
     @Override
@@ -78,6 +80,7 @@ public final class StopwatchFragment extends Fragment implements StopwatchLayout
         super.onPause();
         isRunningNeeded = isRunning;
         isRunning = false;
+        handler = null;
     }
 
     // MARK: - Private Instance Interface
@@ -102,8 +105,14 @@ public final class StopwatchFragment extends Fragment implements StopwatchLayout
     }
 
     private void runTimer() {
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
+        if (handler == null) {
+            handler = new Handler();
+            handler.post(getRunnable());
+        }
+    }
+
+    private Runnable getRunnable() {
+        return new Runnable() {
             @Override
             public void run() {
                 if (isRunning) {
@@ -112,9 +121,11 @@ public final class StopwatchFragment extends Fragment implements StopwatchLayout
                     secondsPassed += 1;
                 }
 
-                handler.postDelayed(this, K_HANDLER_FREQ);
+                if (handler != null) {
+                    handler.postDelayed(this, K_HANDLER_FREQ);
+                }
             }
-        });
+        };
     }
 
     private void stopRunning() {

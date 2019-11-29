@@ -3,6 +3,7 @@ package net.remenkoff.workout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ public class WorkoutDetailFragment extends Fragment {
 
     // MARK: - Private Instance Properties
     private final String K_WORKOUT_ID_KEY = "K_WORKOUT_ID_KEY";
+    private final StopwatchFragment stopwatchFragment = new StopwatchFragment();
+
     private long workoutId;
 
     // MARK: - Fragment Lifecycle
@@ -21,7 +24,13 @@ public class WorkoutDetailFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState != null) {
+        if (savedInstanceState == null) {
+            FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+            ft.add(R.id.sw_frag_container, stopwatchFragment);
+            ft.addToBackStack(null);
+            ft.commit();
+
+        } else {
             workoutId = savedInstanceState.getLong(K_WORKOUT_ID_KEY);
         }
     }
