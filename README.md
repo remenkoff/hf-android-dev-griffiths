@@ -188,9 +188,20 @@ Key points:
 - `getFragmentManager()` gets a reference to the fragment manager associated with the fragment’s parent activity. Any fragment transactions you create using this fragment manager are added to the `back stack` as extra transactions.
 - `getChildFragmentManager()` gets a reference to the fragment manager associated with the fragment’s parent fragment. Any fragment transactions you create using this fragment manager are `nested inside the parent fragment transaction`.
 
-<!--
-
 ## Chapter 12. Design Support Library: Swipe right
+
+- Enable swipe navigation using a `view pager`.
+- You tell a view pager about its pages by implementing a `fragment pager adapter`.
+- Use the fragment pager adapter’s `getCount()` method to tell the view pager how many pages it should have. Use its `getItem()` method to tell it which fragment should appear on each page.
+- Add tab navigation by implementing a `tab layout`. Put the toolbar and tab layout inside an `app bar layout` in your layout code, then attach the tab layout to the view pager in your activity code.
+- The tab layout comes from the `Android Design Support Library`. This library helps you implement the `material design guidelines` in your app.
+- Use a `coordinator layout` to coordinate animations between views.
+- Add scrollable content the coordinator layout can coordinate using a `nested scroll view`.
+- Use a `collapsing toolbar layout` to add a toolbar that collapses and grows in response to user scroll actions.
+- Use a `FAB` (floating action button) to promote common or important user actions.
+- A `snackbar` lets you display short messages that the user can interact with.
+
+<!--
 
 ## Chapter 13. Recycler Views and Card Views: Get recycling
 
