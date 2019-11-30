@@ -1,5 +1,6 @@
 package net.remenkoff.bitsandpizzas;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
@@ -17,7 +18,11 @@ public class CreateOrderActivity extends AppCompatActivity {
     private void setupInitialState() {
         setContentView(R.layout.activity_create_order);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
 }
