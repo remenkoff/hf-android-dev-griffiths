@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.MenuItemCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -50,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
     private void setupInitialState() {
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        setupPagerAdapter();
+    }
+
+    private void setupPagerAdapter() {
+        SectionsPagerAdapter pagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.pager);
+        viewPager.setAdapter(pagerAdapter);
     }
 
     private void setShareActionIntent(String text) {
@@ -57,6 +69,32 @@ public class MainActivity extends AppCompatActivity {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, text);
         shareActionProvider.setShareIntent(intent);
+    }
+
+    private class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        // MARK: - Instantiation
+        SectionsPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
+
+        // MARK: - Super Overrides
+        @Override
+        public int getCount() {
+            return 4;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0: return new TopFragment();
+                case 1: return new PizzaListFragment();
+                case 2: return new PastaListFragment();
+                case 3: return new StoreListFragment();
+               default: return null;
+            }
+        }
+
     }
 
 }
