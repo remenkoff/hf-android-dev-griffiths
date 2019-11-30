@@ -1,6 +1,7 @@
 package net.remenkoff.bitsandpizzas;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ShareActionProvider;
 import androidx.appcompat.widget.Toolbar;
@@ -14,6 +15,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter pagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(pagerAdapter);
+
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     private void setShareActionIntent(String text) {
@@ -91,7 +97,19 @@ public class MainActivity extends AppCompatActivity {
                 case 1: return new PizzaListFragment();
                 case 2: return new PastaListFragment();
                 case 3: return new StoreListFragment();
-               default: return null;
+                default: return null;
+            }
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0: return getResources().getText(R.string.tab_home);
+                case 1: return getResources().getText(R.string.tab_pizza);
+                case 2: return getResources().getText(R.string.tab_pasta);
+                case 3: return getResources().getText(R.string.tab_store);
+                default: return null;
             }
         }
 
