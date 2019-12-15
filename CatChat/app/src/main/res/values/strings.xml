@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CatChat</string>
+
+    <string name="hello_inbox_fragment">Inbox fragment</string>
+    <string name="hello_drafts_fragment">Drafts fragment</string>
+    <string name="hello_sent_items_fragment">Sent items fragment</string>
+    <string name="hello_trash_fragment">Trash fragment</string>
+
 </resources>
