@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0: return new TopFragment();
-                case 1: return new PizzaListFragment();
+                case 1: return new PizzaFragment();
                 case 2: return new PastaListFragment();
                 case 3: return new StoreListFragment();
                 default: return null;
