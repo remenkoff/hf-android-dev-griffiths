@@ -105,6 +105,8 @@ Key points:
 
 ## Chapter 5. Views and View Groups: Enjoy the view
 
+Key points:
+
 - GUI components are all types of view. They are all subclasses of the `android.view.View` class.
 - All layouts are subclasses of the `android.view.ViewGroup` class. A view group is a type of view that can contain multiple views.
 - The layout XML file gets converted to a `ViewGroup` containing a hierarchical tree of views.
@@ -125,6 +127,8 @@ Key points:
 
 ## Chapter 6. Constraint Layouts: Put things in their place
 
+Key points:
+
 - `Constraint layouts` are designed to work with Android Studio’s design editor. They have their own library and can be used in apps where the minimum SDK is API level 9 or above.
 - Position views by adding `constraints`. Each view needs at least one horizontal and one vertical constraint.
 - Center views by adding constraints to opposite sides of the view. Change the view’s bias to update its position between the constraints.
@@ -134,6 +138,8 @@ Key points:
 
 ## Chapter 7. List views and Adapters: Getting organized
 
+Key points:
+
 - Sort your ideas for activities into top-level activities, category activities, and create / detail / edit / delete (`CRUD`) activities. Use the category activities to navigate from the top-level activities to the create `CRUD` activities.
 - A list view displays items in a list. Add it to your layout using the `<ListView>` element.
 - Use `android:entries` in your layout to populate the items in your list views from an array defined in `strings.xml`.
@@ -142,6 +148,8 @@ Key points:
 - Handle click events on `Buttons` using `android:onClick` in the layout code. Handle click events elsewhere by creating a `listener` and implementing its click event.
 
 ## Chapter 8. Support Libraries and App Bars: Taking shortcuts
+
+Key points:
 
 - You add a basic app bar by applying a `theme` that contains one.
 - The `A`ndroid Support Libraries` provide backward compatibility with older versions of Android.
@@ -157,6 +165,8 @@ Key points:
 
 ## Chapter 9. Fragments: Make it modular
 
+Key points:
+
 - A fragment is used to control part of a screen. It `can be reused` across multiple activities.
 - A fragment has an `associated layout`.
 - The `onCreateView()` method gets called each time Android needs the fragment’s layout.
@@ -167,6 +177,8 @@ Key points:
 - A `list fragment` is a fragment that comes complete with a `ListView`. You create one by subclassing `ListFragment`.
 
 ## Chapter 10. Fragments for Larger Interfaces: Different size, different interface
+
+Key points:
 
 - Make apps look different on different devices by putting separate layouts in `device-appropriate folders`.
 - Android keeps track of places you’ve visited within an app by adding them to the `back stack` as separate `transactions`. Pressing the Back button pops the last transaction off the back stack.
@@ -180,6 +192,8 @@ Key points:
 
 ## Chapter 11. Dynamic Fragments: Nesting fragments
 
+Key points:
+
 - Fragments can contain other fragments.
 - If you use the `android:onClick` attribute in a fragment, Android will look for a method of that name in the fragment’s parent activity.
 - Instead of using the `android:onClick` attribute in a fragment, make the fragment implement the `View.OnClickListener` interface and implement its `onClick()` method.
@@ -189,6 +203,8 @@ Key points:
 - `getChildFragmentManager()` gets a reference to the fragment manager associated with the fragment’s parent fragment. Any fragment transactions you create using this fragment manager are `nested inside the parent fragment transaction`.
 
 ## Chapter 12. Design Support Library: Swipe right
+
+Key points:
 
 - Enable swipe navigation using a `view pager`.
 - You tell a view pager about its pages by implementing a `fragment pager adapter`.
@@ -201,9 +217,20 @@ Key points:
 - Use a `FAB` (floating action button) to promote common or important user actions.
 - A `snackbar` lets you display short messages that the user can interact with.
 
-<!--
-
 ## Chapter 13. Recycler Views and Card Views: Get recycling
+
+Key points:
+
+- `Card views` and `recycler views` have their own `Support Libraries`.
+- Add a card view to a layout using the `<android.support. v7.widget.CardView>` element.
+- Give the card view rounded corners using the `cardCornerRadius` attribute. This requires a namespace of `"http://schemas.android.com/apk/res-auto"`.
+- Give the card view a drop shadow using the `cardElevation` attribute. This requires a namespace of `"http://schemas.android.com/apk/res-auto"`.
+- Recycler views work with adapters that are subclasses of `RecyclerView.Adapter`.
+- When you create your own `RecyclerView.Adapter`, you must define the view holder and implement the `onCreateViewHolder()`, `onBindViewHolder()`, and `getItemCount()` methods.
+- You add a recycler view to a layout using the `<android.support. v7.widget.RecyclerView>` element. You give it a scrollbar using the `android:scrollbars` attribute.
+- Use a layout manager to specify how items in a `recycler view` should be arranged. A `LinearLayoutManager` arranges items in a linear list, a `GridLayoutManager` arranges items in a grid, and a `StaggeredGridLayoutManager` arranges items in a staggered grid.
+
+<!--
 
 ## Chapter 14. Navigation Drawers: Going places
 
