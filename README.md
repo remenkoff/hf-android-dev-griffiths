@@ -230,9 +230,22 @@ Key points:
 - You add a recycler view to a layout using the `<android.support. v7.widget.RecyclerView>` element. You give it a scrollbar using the `android:scrollbars` attribute.
 - Use a layout manager to specify how items in a `recycler view` should be arranged. A `LinearLayoutManager` arranges items in a linear list, a `GridLayoutManager` arranges items in a grid, and a `StaggeredGridLayoutManager` arranges items in a staggered grid.
 
-<!--
-
 ## Chapter 14. Navigation Drawers: Going places
+
+Key points:
+
+- Use a `navigation drawer` if you want to provide the user with a large number of shortcuts, or group them into sections.
+- Create a navigation drawer by adding a **drawer layout** to your activity’s layout. The drawer layout’s first element needs to be a view that defines the activity’s main content, usually a layout containing a `Toolbar` and `FrameLayout`. Its second element defines the contents of the drawer, usually a `NavigationView`.
+- The **NavigationView** comes from the `Design Support Library`. It controls most of the drawer’s behavior.
+- You add a header to your drawer by creating a layout for it, and adding the header’s resource ID to the navigation view’s `headerLayout` attribute.
+- You add items to the drawer by creating a menu resource, and adding the menu’s resource ID to the navigation view’s `menu` attribute.
+- Add items to the `menu resource` in the order in which you want them to appear in the drawer.
+- If you want to highlight which item in the drawer the user selects, add the menu items to a group and set the group’s `checkableBehavior` attribute to "`single`".
+- Use an **ActionBarDrawerToggle** to display a “burger” icon in the activity’s toolbar. This provides a visual sign that the activity has a navigation drawer. Clicking on it opens the drawer.
+- Respond to the user clicking on items in the drawer by making your activity implement the **NavigationView.OnNavigationItemSelectedListener** interface. Register the activity with the navigation view as a listener, then implement the `onNavigationItemSelected()` method.
+- Close the navigation drawer using the `DrawerLayout` `closeDrawer()` method.
+
+<!--
 
 ## Chapter 15. SQLite Databases: Fire up the database
 
