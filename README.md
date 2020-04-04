@@ -263,12 +263,29 @@ Key points:
 - Update records using the `update()` method.
 - Remove records from tables using the `delete()` method.
 
+## Chapter 18. Started Services: At your service
+
+Key points:
+
+- A `service` is an application component that can perform tasks in the background. It doesn’t have a user interface.
+- A `started service` can run in the background indefinitely, even when the activity that started it is destroyed. Once the operation is done, it stops itself.
+- A `bound service` is bound to another component such as an activity. The activity can interact with it and get results.
+- A `scheduled service` is one that’s scheduled to run at a particular time.
+- You can create a simple `started service` by extending the `IntentService` class, overriding its `onHandleIntent()` method and adding a public constructor.
+- You declare services in `AndroidManifest.xml` using the `<service>` element.
+- You start a `started service` using the `startService()` method.
+- When a `started service` is created, its `onCreate()` method gets called, followed by `onStartCommand()`. If the service is an `IntentService`, `onHandleIntent()` is then called in a separate thread. When the service has finished running, `onDestroy()` gets called before the service is destroyed.
+- The `IntentService` class inherits lifecycle methods from the `Service` class.
+- You log messages using the `Android.util.Log` class. You can view these messages in the `logcat` in Android Studio.
+- You create a `notification` using a `notification builder`. Each notification must include a small icon, a title, and some text as a bare minimum.
+- A `heads-up notification` has its priority set to high, and vibrates the device or plays a sound when it’s issued.
+- You tell the notification which activity to start when it’s clicked by creating a `pending intent` and adding it to the notification as an action.
+- You issue the notification using a `notification manager`. You create a notification manager using Android’s `notification service`.
+
 <!--
 ## Chapter 16. Basic cursors: Getting data out
 
 ## Chapter 17. Cursors and AsyncTasks: Staying in the background
-
-## Chapter 18. Started Services: At your service
 
 ## Chapter 19. Bound Services and Permissions: Bound together
 >
