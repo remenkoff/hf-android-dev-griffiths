@@ -6,12 +6,55 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 public final class DrinkDetailsActivity extends Activity implements DrinkDetailsLayout.Delegate {
+
+    private class UpdateDrinkTask extends AsyncTask<Integer, Void, Boolean> {
+
+        private ContentValues drinkValues;
+
+        @Override
+        protected void onPreExecute() {
+            boolean isFavorite = layout.favoriteCheckBox.isChecked();
+            drinkValues = new ContentValues();
+            drinkValues.put("FAVORITE", isFavorite);
+        }
+
+        @Override
+        protected Boolean doInBackground(Integer... drinks) {
+            int drinkId = drinks[0];
+            SQLiteOpenHelper dbHelper = new StarbuzzDatabaseHelper(DrinkDetailsActivity.this);
+            try {
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                db.update(
+                        "DRINK",
+                        drinkValues,
+                        "_id = ?",
+                        new String[] {Integer.toString(drinkId)}
+                );
+                return true;
+
+            } catch(SQLiteException e) {
+                return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Boolean isSuccess) {
+            if (!isSuccess) {
+                Toast.makeText(
+                        DrinkDetailsActivity.this,
+                        "Database unavailable",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        }
+    }
 
     // MARK: - Public Type Interface
     public static final String K_DRINK_ID_KEY = "K_DRINK_ID_KEY";
@@ -71,24 +114,6 @@ public final class DrinkDetailsActivity extends Activity implements DrinkDetails
     @Override
     public void onFavoriteClick() {
         int drinkId = getIntent().getIntExtra(K_DRINK_ID_KEY, -1);
-        boolean isFavorite = layout.favoriteCheckBox.isChecked();
-
-        ContentValues drinkValues = new ContentValues();
-        drinkValues.put("FAVORITE", isFavorite);
-
-        SQLiteOpenHelper dbHelper = new StarbuzzDatabaseHelper(this);
-
-        try {
-            SQLiteDatabase db = dbHelper.getWritableDatabase();
-            db.update(
-                    "DRINK",
-                    drinkValues,
-                    "_id = ?",
-                    new String[] {Integer.toString(drinkId)}
-            );
-
-        } catch(SQLiteException e) {
-            Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT).show();
-        }
+        new UpdateDrinkTask().execute(drinkId);
     }
 }
