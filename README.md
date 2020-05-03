@@ -273,6 +273,21 @@ Key points:
 - Get values from a cursor using the `get*()` methods. Close cursors and database connections after you’ve finished with them.
 - A `cursor adapter` is an adapter that works with cursors. Use `SimpleCursorAdapter` to populate a list view with the values returned by a cursor.
 
+## Chapter 17. Cursors and AsyncTasks: Staying in the background
+
+- The CursorAdapter.changeCursor() method replaces the cursor currently used by a cursor adapter with a new cursor that you provide. It then closes the old cursor.
+- Run your database code in a background thread using AsyncTask.
+
+#### AsyncTask steps
+1. **onPreExecute() is used to set up the task.**
+It’s called before the background task begins, and runs on the main event thread.
+2. **doInBackground() runs in the background thread.**
+It runs immediately after onPreExecute(). You can specify what type of parameters it has, and what its return type is.
+3. **onProgressUpdate() is used to display progress.**
+It runs in the main event thread when the doInBackground() method calls publishProgress().
+4. **onPostExecute() is used to display the task outcome to the user when doInBackground has finished.**
+It runs in the main event thread and takes the return value of doInBackground() as a parameter.
+
 ## Chapter 18. Started Services: At your service
 
 Key points:
@@ -309,7 +324,3 @@ Key points:
 - If your target SDK is API level 23 or above, check at runtime whether your app has been granted a permission using the `ContextCompat.checkSelfPermission()` method.
 - Request permissions at runtime using `ActivityCompat.requestPermissions()`.
 - Check the user’s response to a permission request by implementing the activity’s `onRequestPermissionsResult()` method.
-
-<!--
-## Chapter 17. Cursors and AsyncTasks: Staying in the background
->
