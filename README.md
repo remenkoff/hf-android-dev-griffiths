@@ -263,6 +263,16 @@ Key points:
 - Update records using the `update()` method.
 - Remove records from tables using the `delete()` method.
 
+## Chapter 16. Basic cursors: Getting data out
+
+- A `cursor` lets you read from and write to the database.
+- You create a cursor by calling the `SQLiteDatabasequery()` method. Behind the scenes, this builds a SQL `SELECT` statement.
+- The `getWritableDatabase()` method returns a `SQLiteDatabase` object that allows you to read from and write to the database.
+- The `getReadableDatabase()` returns a `SQLiteDatabase` object. This gives you read-only access to the database. It `may` also allow you to write to - the database, but this isn’t guaranteed.
+- Navigate through a cursor using the `moveTo*()` methods.
+- Get values from a cursor using the `get*()` methods. Close cursors and database connections after you’ve finished with them.
+- A `cursor adapter` is an adapter that works with cursors. Use `SimpleCursorAdapter` to populate a list view with the values returned by a cursor.
+
 ## Chapter 18. Started Services: At your service
 
 Key points:
@@ -301,7 +311,5 @@ Key points:
 - Check the user’s response to a permission request by implementing the activity’s `onRequestPermissionsResult()` method.
 
 <!--
-## Chapter 16. Basic cursors: Getting data out
-
 ## Chapter 17. Cursors and AsyncTasks: Staying in the background
 >
