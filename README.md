@@ -282,10 +282,26 @@ Key points:
 - You tell the notification which activity to start when it’s clicked by creating a `pending intent` and adding it to the notification as an action.
 - You issue the notification using a `notification manager`. You create a notification manager using Android’s `notification service`.
 
+## Chapter 19. Bound Services and Permissions: Bound together
+
+- You create a bound service by extending the `Service` class. You define your own `Binder` object, and override the `onBind()` method.
+- Bind a component to a service using the `bindService()` method.
+- Use a `ServiceConnection` so that your activity can get a reference to the service when it’s bound.
+- Unbind a component from a service using the `unbindService()` method.
+- When a bound service is created, its `onCreate()` method is called. `onBind()` gets called when a component binds to the service.
+- When all components have unbound from the service, its `onUnbind()` method is called.
+- A bound service is destroyed when no components are bound to it. Its `onDestroy()` method is called just before the service is destroyed.
+- Use the `Android Location Services` to determine the current location of the device.
+- To get the current location of the device, you need to declare that the app requires `ACCESS_FINE_LOCATION` permission in `AndroidManifest.xml`.
+- Get location updates using a `LocationListener`.
+- A `LocationManager` gives you access to Android’s Location Services. Get the best location provider available on the device using its - `getBestProvider()` method. Request location updates from the provider using `requestLocationUpdates()`.
+- Use `removeUpdates()` to stop getting location updates.
+- If your target SDK is API level 23 or above, check at runtime whether your app has been granted a permission using the `ContextCompat.checkSelfPermission()` method.
+- Request permissions at runtime using `ActivityCompat.requestPermissions()`.
+- Check the user’s response to a permission request by implementing the activity’s `onRequestPermissionsResult()` method.
+
 <!--
 ## Chapter 16. Basic cursors: Getting data out
 
 ## Chapter 17. Cursors and AsyncTasks: Staying in the background
-
-## Chapter 19. Bound Services and Permissions: Bound together
 >
