@@ -3,7 +3,7 @@ package net.remenkoff.starbuzz;
 final class Drink {
 
     // MARK: - Public Type Interface
-    public static final Drink[] drinks = {
+    static final Drink[] drinks = {
         new Drink(
                 "Latte",
                 "A couple of espresso shots with steamed milk",
@@ -22,12 +22,12 @@ final class Drink {
     };
 
     // MARK: - Public Instance Interface
-    public final String name;
-    public final String desc;
-    public final int imageResourceId;
+    final String name;
+    final String desc;
+    final int imageResourceId;
 
     // MARK: - Instantiation
-    public Drink(String name, String desc, int imageResourceId) {
+    private Drink(String name, String desc, int imageResourceId) {
         this.name = name;
         this.desc = desc;
         this.imageResourceId = imageResourceId;
@@ -38,5 +38,4 @@ final class Drink {
     public String toString() {
         return name;
     }
-
 }
